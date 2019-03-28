@@ -6,12 +6,25 @@ using System.Threading.Tasks;
 
 namespace Assignment6
 {
-    class LogMessageClass
+    class LogMessageClass 
     {
         //one member variable, a private reference to the CustomTimerClass object. 
         //Create a constructor that takes a CustomTimerClass argument and saves that argument in the private member variable. 
         //Create a method called LogMessage() that takes two arguments – 
         ///a sender object and a TimerEventArgs reference and 
         ///displays the information from the TimerEventArgs object.
+        ///
+
+        private CustomTimerClass _timer = new CustomTimerClass();
+
+        public LogMessageClass (CustomTimerClass timer)
+        {
+            _timer = timer;
+        }
+
+        public void LogMessage(int send, TimerEventArgs args)
+        {
+            Console.WriteLine($"The current time is: { args.FormatTime}");
+        }
     }
 }
